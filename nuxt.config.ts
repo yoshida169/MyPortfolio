@@ -2,19 +2,21 @@
 export default defineNuxtConfig({
   compatibilityDate: '2025-07-15',
   devtools: { enabled: true },
-  
+
   // モジュール
   modules: [
     '@pinia/nuxt',
   ],
-  
-  // SSG設定
+
+  // SSG設定 (nuxt generate → .output/public に静的ファイルを出力)
   nitro: {
+    preset: 'static',
     prerender: {
+      crawlLinks: true,
       routes: ['/']
     }
   },
-  
+
   // SEO設定
   app: {
     head: {
